@@ -1,0 +1,132 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Header / Toolbar Toolbar Area */
+.toolbar-panel {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.tool-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  color: var(--text-primary);
+  background: transparent;
+}
+
+.tool-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tool-btn.active {
+  background: rgba(99, 102, 241, 0.2);
+  color: var(--accent-hover);
+}
+
+/* Main Workspace */
+.workspace {
+  flex: 1;
+  background-color: var(--bg-secondary);
+  position: relative;
+  overflow: auto; /* Allow panning if needed, though hidden for now */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Canvas Area */
+.canvas-board {
+  width: 800px;
+  height: 600px;
+  background-color: var(--canvas-bg);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  transform-origin: center center;
+  /* subtle grid inside canvas */
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  /* Checkboard pattern for transparent images if needed, but not required now */
+}
+
+/* Properties Side Panel */
+.properties-panel {
+  width: 280px;
+  height: 100vh;
+  border-left: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  z-index: 50;
+}
+
+.panel-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.panel-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.prop-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.prop-group label {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.prop-row {
+  display: flex;
+  gap: 8px;
+}
+
+.prop-input {
+  flex: 1;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.prop-input:focus {
+  border-color: var(--accent-color);
+}
